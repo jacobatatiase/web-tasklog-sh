@@ -51,18 +51,50 @@
             z-index: 1;
         }
         
+        .app-icon-container {
+            position: relative;
+            margin: 0 auto 2rem;
+            width: 180px;
+            height: 180px;
+        }
+        
+        .app-icon-container::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.6) 0%, rgba(118, 75, 162, 0.4) 50%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+            z-index: -1;
+        }
+        
         .app-icon {
             width: 180px;
             height: 180px;
             border-radius: 36px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-            margin: 0 auto 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 100px rgba(102, 126, 234, 0.3);
             display: block;
             transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
         
         .app-icon:hover {
             transform: scale(1.05) rotate(2deg);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 0.4;
+            }
+            50% { 
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
         }
         
         h1 {
@@ -201,6 +233,11 @@
                 font-size: 1rem;
             }
             
+            .app-icon-container {
+                width: 140px;
+                height: 140px;
+            }
+            
             .app-icon {
                 width: 140px;
                 height: 140px;
@@ -219,18 +256,20 @@
     
     <main class="hero">
         <div class="hero-content">
-            <img src="AppIcon.appiconset/ItunesArtwork@2x.png" alt="TaskLog App Icon" class="app-icon">
+            <div class="app-icon-container">
+                <img src="AppIcon.appiconset/ItunesArtwork@2x.png" alt="TaskLog App Icon" class="app-icon">
+            </div>
             
             <h1>TaskLog</h1>
             
             <p class="subtitle">The ultimate iOS task management experience</p>
             
             <p class="description">
-                A powerful and intuitive task management app for iOS, deeply inspired by the legendary Taskwarrior. 
+                A powerful and intuitive task management app for iOS, deeply inspired by the legendary <a href="https://taskwarrior.org" target="_blank" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Taskwarrior</a>. 
                 Combining the robust functionality of command-line task management with the elegance of modern iOS design.
             </p>
             
-            <a href="#" class="coming-soon">Coming Soon to the App Store</a>
+            <a href="#" class="coming-soon">Coming Soon to TestFlight</a>
             
             <div class="features">
                 <div class="feature">
@@ -244,8 +283,8 @@
                 </div>
                 
                 <div class="feature">
-                    <h3>🧠 Ultra Think Mode</h3>
-                    <p>Advanced task analysis and intelligent prioritization to help you think deeper about your work.</p>
+                    <h3>🔄 Terminal Sync</h3>
+                    <p>Seamlessly sync with the terminal client, featuring functionality very similar to the original <a href="https://taskwarrior.org" target="_blank" style="color: rgba(255, 255, 255, 0.9); text-decoration: underline;">Taskwarrior</a> client.</p>
                 </div>
                 
                 <div class="feature">
